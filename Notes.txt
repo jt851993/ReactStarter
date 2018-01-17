@@ -1,0 +1,9 @@
+Initialize folder: npm init -y
+Webpack: npm install -g webpack webpack-dev-server
+Webpack2: npm install -save-dev webpack webpack-dev-server
+React: npm install --save react react-dom
+Babel: npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
+React Hot Loader: npm install --save-dev react-hot-loader
+
+To build app: webpack
+To Deploy server:webpack-dev-server
