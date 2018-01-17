@@ -44,7 +44,7 @@ export default class App extends Component{
         return ""
     }
 
-    addListField(e){
+    addListField(){
         if(this.state.list != "")
         {
             return <ListField  myArray = {this.state.list}/>
@@ -58,12 +58,10 @@ export default class App extends Component{
                 <PostField
                     submit={this.handleSubmit}
                     reset={this.reset}
-                    myArray = {this.state.list}
                 />
                 {this.addAddedField()}
                 {this.addListField()}
             </div>
-
         );
     }
 };

@@ -8,16 +8,20 @@ export default class App extends Component{
     render(){
         return(
             <div>
-                <ul>
-                    <table>
-                        <tr>
-                            <th>Entries</th>
-                        </tr>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Entries</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                         {this.props.myArray.map((element) =>
-                            <tr><td key={element}>{element}</td> </tr>
+                            <tr key={element + "row"}>
+                                <td key={element}>{element}</td>
+                            </tr>
                         )}
-                    </table>
-                </ul>
+                    </tbody>
+                </table>
             </div>
         );
     }

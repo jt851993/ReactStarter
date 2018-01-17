@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-
-
 export default class App extends Component{
     constructor(props){
         super(props);
@@ -15,7 +13,8 @@ export default class App extends Component{
     }
 
     handlePost(){
-        this.props.submit(this.refs.post.value);
+        if(this.refs.post.value != ''){
+        this.props.submit(this.refs.post.value);}
     }
 
     render(){
