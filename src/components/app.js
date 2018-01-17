@@ -10,8 +10,6 @@ export default class App extends Component{
         super(props);
         this.reset = this.reset.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.addAddedField = this.addAddedField.bind(this);
-        this.addListField = this.addListField.bind(this);
         this.state = {
             post: "",
             list: [],
@@ -48,20 +46,6 @@ export default class App extends Component{
         }
     }
 
-    addAddedField(){
-        if(this.state.post != ""){
-            return <AddedField field={this.state.post}/>
-        }
-        return ""
-    }
-
-    addListField(){
-        if(this.state.list != ""){
-            return <ListField  myArray = {this.state.list}/>
-        }
-        return ""
-    }
-
     render(){
         return(
             <div>
@@ -69,8 +53,8 @@ export default class App extends Component{
                     submit={this.handleSubmit}
                     reset={this.reset}
                 />
-                {this.addAddedField()}
-                {this.addListField()}
+                <AddedField field={this.state.post}/>
+                <ListField  myArray = {this.state.list}/>
             </div>
         );
     }

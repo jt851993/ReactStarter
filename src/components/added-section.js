@@ -6,6 +6,9 @@ export default class App extends Component{
     }
 
     render(){
+        if(this.props.field == ""){
+            return (this.props.field);
+        }
         return(
             <div>
                 {this.props.field}
