@@ -14,7 +14,8 @@ export default class App extends Component{
         this.addListField = this.addListField.bind(this);
         this.state = {
             post: "",
-            list: []
+            list: [],
+            listObject: {}
         }
     }
 
@@ -22,31 +23,40 @@ export default class App extends Component{
         this.setState(
             {
                 post: "",
-                list:[]
+                list:[],
+                listObject: {}
             }
         )
     }
 
     handleSubmit(e){
-        this.state.list.push(e);
-        this.setState(
-            {
-                post:e
-            }
-        )
+        if(!this.state.listObject[e]){
+            this.state.listObject[e] = true;
+            this.state.list.push(e);
+            this.setState(
+                {
+                    post:<p>Added {e}</p>
+                }
+            )
+        }
+        else{
+            this.setState(
+                {
+                    post:<p>Element {e} already exists</p>
+                }
+            )
+        }
     }
 
     addAddedField(){
-        if(this.state.post != "")
-        {
+        if(this.state.post != ""){
             return <AddedField field={this.state.post}/>
         }
         return ""
     }
 
     addListField(){
-        if(this.state.list != "")
-        {
+        if(this.state.list != ""){
             return <ListField  myArray = {this.state.list}/>
         }
         return ""

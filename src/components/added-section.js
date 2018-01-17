@@ -8,7 +8,7 @@ export default class App extends Component{
     render(){
         return(
             <div>
-                <p>Added: {this.props.field}</p>
+                {this.props.field}
             </div>
         );
     }
