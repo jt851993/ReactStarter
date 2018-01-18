@@ -13,18 +13,19 @@ export default class App extends Component{
         this.state = {
             post: "",
             list: [],
-            listObject: {}
-        }
+            listObject: {},
+            hasError: false
+        };
     }
 
     reset(){
-        this.setState(
-            {
-                post: "",
-                list:[],
-                listObject: {}
-            }
-        )
+        this.setState({
+            post: "",
+            list: [],
+            listObject: {},
+            hasError: false
+        })
+        console.log(this.state);
     }
 
     handleSubmit(e){
@@ -33,17 +34,19 @@ export default class App extends Component{
             this.state.list.push(e);
             this.setState(
                 {
-                    post:<p>Added {e}</p>
+                    post:e,
+                    hasError: false
                 }
             )
         }
         else{
             this.setState(
                 {
-                    post:<p>Element {e} already exists</p>
+                    hasError: true
                 }
             )
         }
+        console.log(this.state);
     }
 
     render(){
@@ -53,7 +56,7 @@ export default class App extends Component{
                     submit={this.handleSubmit}
                     reset={this.reset}
                 />
-                <AddedField field={this.state.post}/>
+                <AddedField field={this.state.post} hasError={this.state.hasError}/>
                 <ListField  myArray = {this.state.list}/>
             </div>
         );
